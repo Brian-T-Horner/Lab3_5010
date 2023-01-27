@@ -1,3 +1,8 @@
+// Imports
+
+/**
+ * TemperatureMonitor interface.
+ */
 public interface TemperatureMonitor {
 
   /**
@@ -19,8 +24,8 @@ public interface TemperatureMonitor {
   int getNumberOfThermostats();
 
   /**
-   * Checks if any of the Thermostats have a temperature greater than 296.15 Kelvin.
-   * @return True if any of the Thermostats are greater than 296.15 Kelvin. False if not.
+   * Checks if two or more of the Thermostats have a temperature greater than 296.15 Kelvin.
+   * @return True if more than one of the Thermostats are greater than 296.15 Kelvin. False if not.
    */
   boolean tooMuchHeating();
 
