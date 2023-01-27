@@ -53,6 +53,8 @@ public class NaiveTemperatureMonitor implements TemperatureMonitor {
     int count = 0;
     for (Thermostat t: thermostatList) {
       // Convert to BigDecimal to avoid arithmetic errors.
+      
+      // round down value instead of BigDecimal?
       int compare =
           BigDecimal.valueOf(t.getSetTemperature()).compareTo(
               BigDecimal.valueOf(23 + 273.15));
