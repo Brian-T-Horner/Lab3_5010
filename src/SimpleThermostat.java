@@ -1,22 +1,26 @@
 // Imports
 import java.text.DecimalFormat;
 
+
+/**
+ * Class for SimpleThermostat objects.
+ */
 public class SimpleThermostat implements Thermostat {
 
-  private static final DecimalFormat decimalRounding = new DecimalFormat("##.00");
+
   private double degreesC;
-  private String StringID;
+  private String stringID;
 
   /**
    * Creates a SimpleThermostat object with the provided ID and degrees in Celsius.
    *
-   * @param ID       A String argument passed as the unique ID for the Simple Thermostat.
+   * @param iD       A String argument passed as the unique ID for the Simple Thermostat.
    * @param degreesC An integer argument of the degrees in Celsius for the SimpleThermostat.
    * @throws IllegalArgumentException - When either the degrees given is greater than 50 or the
    *                                  unique ID passed is blank.
    */
-  public SimpleThermostat(String ID, double degreesC) throws IllegalArgumentException {
-    if (ID == null | ID.isEmpty() | ID.isBlank()) {
+  public SimpleThermostat(String iD, double degreesC) throws IllegalArgumentException {
+    if (iD.isEmpty() | iD.isBlank()) {
       throw new IllegalArgumentException("Invalid ID. ID can not be blank.");
     }
 
@@ -25,7 +29,7 @@ public class SimpleThermostat implements Thermostat {
           "Invalid degrees in Celsius. Must be less than 50 degrees.");
     }
 
-    StringID = ID;
+    this.stringID = iD;
     this.degreesC = degreesC;
   }
 
@@ -37,14 +41,14 @@ public class SimpleThermostat implements Thermostat {
    */
   @Override
   public String getID() {
-    return StringID;
+    return stringID;
   }
 
   /**
    * Returns the SimpleThermostat Celsius temperature converted to Kelvin and as a double.
    *
    * @return A double representing the Kelvin conversion of the SimpleThermostats degrees in
-   * Celsius.
+   *         Celsius.
    */
   @Override
   public double getSetTemperature() {
@@ -86,10 +90,10 @@ public class SimpleThermostat implements Thermostat {
     }
 
     Thermostat that = (Thermostat) o;
-
+    DecimalFormat decimalRounding = new DecimalFormat("##.00");
     // Using decimalRounding Decimal format for check
-    return (this.getID() == that.getID() && (decimalRounding.format(this.getSetTemperature()) ==
-        decimalRounding.format(that.getSetTemperature())));
+    return (this.getID() == that.getID() && (decimalRounding.format(this.getSetTemperature())
+        == decimalRounding.format(that.getSetTemperature())));
 
   }
 
@@ -102,15 +106,13 @@ public class SimpleThermostat implements Thermostat {
   public int hashCode() {
 
     // Need to round to two decimal places first
-    double rounded = Math.round(this.getSetTemperature() *100.0) /100.0;
+    double rounded = Math.round(this.getSetTemperature() * 100.0) / 100.0;
     return Double.hashCode(rounded);
   }
 
 }
 
-/**
- * Old equals and hashCode methods.
- */
+// -------------------------- OLD EQUALS AND HASHCODE METHODS -----------------------------
 //  /**
 //   * Checks if {@code this} SimpleThermostat is equal to provided object.
 //   * @param o An object that is an instance of Thermostat. If not return false.

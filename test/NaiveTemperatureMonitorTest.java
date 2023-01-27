@@ -14,7 +14,7 @@ public class NaiveTemperatureMonitorTest {
 
   // Tests tooMuchHeating with no Thermostats.
   @Test
-  public void testTooMuchHeatingNoTherms(){
+  public void testTooMuchHeatingNoTherms() {
     TemperatureMonitor test;
     test = new NaiveTemperatureMonitor();
     assertEquals(false, test.tooMuchHeating());
@@ -23,7 +23,7 @@ public class NaiveTemperatureMonitorTest {
 
   // Tests tooMuchHeating with only one thermostat.getSetTemperature > 23+273.15
   @Test
-  public void testTooMuchHeatingOne(){
+  public void testTooMuchHeatingOne() {
     TemperatureMonitor test;
     test = new NaiveTemperatureMonitor();
     Thermostat a;
@@ -40,7 +40,7 @@ public class NaiveTemperatureMonitorTest {
 
   // Tests tooMuchHeating with multiple Thermostats over heating.
   @Test
-  public void testTooMuchHeatingMultiple(){
+  public void testTooMuchHeatingMultiple() {
     TemperatureMonitor test;
     test = new NaiveTemperatureMonitor();
     Thermostat a;

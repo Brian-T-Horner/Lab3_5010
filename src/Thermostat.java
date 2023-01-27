@@ -1,6 +1,3 @@
-// Imports
-import java.lang.String;
-
 
 /**
  * Thermostat interface.
