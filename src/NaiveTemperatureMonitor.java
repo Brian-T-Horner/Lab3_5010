@@ -1,4 +1,3 @@
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,13 +51,8 @@ public class NaiveTemperatureMonitor implements TemperatureMonitor {
   public boolean tooMuchHeating() {
     int count = 0;
     for (Thermostat t: thermostatList) {
-      // Convert to BigDecimal to avoid arithmetic errors.
-      
-      // round down value instead of BigDecimal?
-      int compare =
-          BigDecimal.valueOf(t.getSetTemperature()).compareTo(
-              BigDecimal.valueOf(23 + 273.15));
-      if (compare == 1) {
+      double temp = (Math.round(t.getSetTemperature() * 100.0) / 100.0);
+      if (temp > 23 + 273.15) {
         count += 1;
       }
 

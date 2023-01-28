@@ -1,6 +1,3 @@
-// Imports
-import java.text.DecimalFormat;
-
 
 /**
  * Class for SimpleThermostat objects.
@@ -90,10 +87,8 @@ public class SimpleThermostat implements Thermostat {
     }
 
     Thermostat that = (Thermostat) o;
-    DecimalFormat decimalRounding = new DecimalFormat("##.00");
-    // Using decimalRounding Decimal format for check
-    return (this.getID() == that.getID() && (decimalRounding.format(this.getSetTemperature())
-        == decimalRounding.format(that.getSetTemperature())));
+    return (this.getID() == that.getID() && ((Math.round(this.getSetTemperature() * 100.0) / 100.0)
+        == (Math.round(that.getSetTemperature() * 100.0) / 100.0)));
 
   }
 

@@ -30,8 +30,8 @@ public class NaiveTemperatureMonitorTest {
     Thermostat b;
     Thermostat c;
     a = new SimpleThermostat("Thermostat a", 24);
-    b = new SimpleThermostat("Thermostat b", 23.5);
-    c = new SimpleThermostat("Thermostat c", 23);
+    b = new SimpleThermostat("Thermostat b", 23);
+    c = new SimpleThermostat("Thermostat c", 22);
     test.add(a);
     test.add(b);
     test.add(c);
